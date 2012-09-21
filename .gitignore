@@ -13,3 +13,6 @@ app/config/parameters.ini
 app/config/parameters.yml
 composer.phar
 .htaccess
+.project
+.buildpath
+.settings
