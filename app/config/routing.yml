@@ -1,3 +1,7 @@
+smart_core:
+    resource: "@SmartCoreBundle/Resources/config/routing.xml"
+    prefix:   /
+
 smart_test:
     resource: "@SmartTestBundle/Resources/config/routing.xml"
     prefix:   /test

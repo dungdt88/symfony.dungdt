@@ -7,4 +7,11 @@
     <route id="smart_test_index" pattern="/index">
         <default key="_controller">SmartTestBundle:Default:index</default>
     </route>
+    
+    <route id="smart_test.list_options" pattern="/list-options">
+        <default key="_controller">SmartTestBundle:Default:listOptions</default>
+    </route>
+    <route id="smart_test.list_teams" pattern="/list-teams">
+        <default key="_controller">SmartTestBundle:Default:listTeams</default>
+    </route>
 </routes>

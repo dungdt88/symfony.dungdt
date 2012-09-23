@@ -1,5 +1,5 @@
 {
-    "hash": "c60fd92d1bdaaf165e460559e4e48cec",
+    "hash": "7af08484ccf734bc6e3e1f46521be015",
     "packages": [
         {
             "package": "doctrine/common",
@@ -54,6 +54,12 @@
             "version": "1.2.x-dev",
             "source-reference": "9ab6aceda50fc7a2b07d741ba4b3f0695508afcb",
             "commit-date": "1346947943"
+        },
+        {
+            "package": "kitpages/data-grid-bundle",
+            "version": "dev-master",
+            "source-reference": "v1.3.0",
+            "commit-date": "1346170437"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -186,6 +192,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "liip/doctrine-cache-bundle": 20
+        "liip/doctrine-cache-bundle": 20,
+        "kitpages/data-grid-bundle": 20
     }
 }
