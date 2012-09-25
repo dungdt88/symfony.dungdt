@@ -48,6 +48,10 @@ class DefaultController extends Controller
         ));
     }
     
+    /**
+     * 
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listOptionsAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -76,9 +80,6 @@ class DefaultController extends Controller
                     'label' => 'Autoload',
                     'filterable' => true,
             )))
-            ->addField(new Field('custom', array(
-                    'label' => 'Custom Field',
-            )))
         ;
         
         $gridManager = $this->get('kitpages_data_grid.manager');
@@ -90,20 +91,26 @@ class DefaultController extends Controller
         ));
     }
     
+    /**
+     * 
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listTeamsAction()
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('SmartCoreBundle:Team');
         
-        $queryBuilder = $em->createQueryBuilder()
-            ->select('t, sc')
-            ->from('SmartCoreBundle:Team', 't')
-            ->innerJoin('t.sportClass', 'sc')
+        $queryBuilder = $repo->createQueryBuilder('t')
+            ->select('t, sportClass, sport')
+            ->join('t.sportClass', 'sportClass')
+            ->join('sportClass.sport', 'sport')
+            ->groupBy('t.id')
         ;
         
         $gridConfig = new GridConfig;
         $gridConfig
             ->setCountFieldName('t.id')
+            ->setCountFieldName('sportClass.id')
             ->addField(new Field('t.id', array(
                     'label' => 'Team ID',
                     'sortable' => true,
@@ -118,8 +125,13 @@ class DefaultController extends Controller
                     'filterable' => true,
                     'sortable' => true,
             )))
-            ->addField(new Field('sc.name', array(
+            ->addField(new Field('sportClass.name', array(
                     'label' => 'Sport Class',
+                    'filterable' => true,
+                    'sortable' => true,
+            )))
+            ->addField(new Field('sportClass.sport.name', array(
+                    'label' => 'Sport Name',
                     'filterable' => true,
                     'sortable' => true,
             )))

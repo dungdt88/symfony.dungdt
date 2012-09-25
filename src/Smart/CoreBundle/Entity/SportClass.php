@@ -28,7 +28,11 @@ class SportClass
      * @var integer $classId
      */
     protected $classId;
-
+    
+    /**
+     * @var \Smart\CoreBundle\Entity\Sport $sport
+     */
+    protected $sport;
 
     /**
      * Get id
@@ -107,5 +111,28 @@ class SportClass
     public function getClassId()
     {
         return $this->classId;
+    }
+    
+/**
+     * Set sport
+     *
+     * @param integer $sport
+     * @return SportClass
+     */
+    public function setSport($sport)
+    {
+        $this->sport = $sport;
+    
+        return $this;
+    }
+
+    /**
+     * Get sport
+     *
+     * @return \Smart\CoreBundle\Entity\Sport
+     */
+    public function getSport()
+    {
+        return $this->sport;
     }
 }

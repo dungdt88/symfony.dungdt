@@ -1,0 +1,3 @@
+[submodule "testvendor/fos"]
+	path = testvendor/fos
+	url = git://github.com/FriendsOfSymfony/FOSUserBundle.git

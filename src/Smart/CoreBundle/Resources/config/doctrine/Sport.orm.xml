@@ -3,15 +3,11 @@
 	xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-	<entity name="Smart\CoreBundle\Entity\SportClass" table="sport_class">
+	<entity name="Smart\CoreBundle\Entity\Sport" table="sport">
 		<id name="id" type="integer" column="id">
 			<generator strategy="AUTO" />
 		</id>
 		<field name="name" type="string" column="name" length="255" />
-		<field name="sportId" type="integer" column="sport_id" />
-		<field name="classId" type="integer" column="class_id" />
-		<many-to-one field="sport" target-entity="Sport">
-            <join-column name="sport_id" referenced-column-name="id" />
-        </many-to-one>
+		<field name="gameName" type="string" column="game_name" length="20" />
 	</entity>
 </doctrine-mapping>
